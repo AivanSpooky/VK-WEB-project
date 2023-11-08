@@ -1,0 +1,41 @@
+.navbar {
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+}
+
+.tags {
+    margin-top: auto;
+    max-width: auto;
+    font-size: 20px;
+}
+
+.larger-text {
+    font-size: 40px;
+}
+
+.list-group {
+    margin-left: 15px;
+    max-width: 250px;
+    margin-top: 5px;
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    color: blueviolet;
+}
+
+.list-group-item {
+    border: 1px;
+}
+
+.profile-image {
+    padding-top: 5px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+/* .bg-light {
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    color: blueviolet;
+} */

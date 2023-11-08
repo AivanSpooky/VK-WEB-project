@@ -1,0 +1,21 @@
+{% load static %}
+
+<div class="row question">
+    <div class="col-4 question-left">
+        <img src="{% static 'img/1.jpeg' %}" alt="" class="question-image">
+        {% include "components/likes-count.html" with likes_count=question.likes %}
+    </div>
+    <div class="col-8 question-body">
+        <div class="question-title"><a href="{% url 'question' question_id=question.id %}">{{ question.title }}</a></div>
+        <div class="question-text flex-grow-1 mb-5">{{ question.content }}</div>
+        <div class="question-bottom d-flex">
+            <div class="answer-cnt"><a href="{% url 'question' question_id=question.id %}">answer: {{ question.answer_cnt }}</a></div>
+            <div class="tags d-flex" style="margin-left: 100px">
+                <h2 style="font-size: 20px">Tags:</h2>
+                {% for tag in question.tags %}
+                <a href="{% url 'tag' tag=tag %}"><span class="badge bg-primary" style="margin-left: 10px">{{ tag }}</span></a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

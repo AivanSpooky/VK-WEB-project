@@ -1,0 +1,40 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h1>Settings: {{ profile.nickname }}</h1>
+    <div class="row">
+        <div class="col-8">
+            <form>
+                <div class="mb-3">
+                    <label for="loginInput" class="form-label">login</label>
+                    <input type="text" class="form-control" id="loginInput" value="{{ profile.login }}">
+                </div>
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">email</label>
+                    <input type="text" class="form-control" id="emailInput" value="{{ profile.email }}">
+                </div>
+                <div class="mb-3">
+                    <label for="nicknameInput" class="form-label">nickname</label>
+                    <input type="text" class="form-control" id="nicknameInput" value="{{ profile.nickname }}">
+                </div>
+            </form>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="avatarInput" class="form-label">avatar</label>
+                <div class="user-image" id="avatarInput">
+                    <img src="{% static 'img/profile.png' %}" alt="Profile Picture" class="img-fluid user-image" style="width: 130px; border: 1px solid white;">
+                </div>
+            </div>
+            <form>
+                <div class="mb-3">
+                    <input type="file" class="form-control" id="avatarFile" accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load static %}
+
+<div class="row">
+    <div class="col-4">
+        <div class="profile-image">
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="col-12">
+            <div class="text-center">
+                <h5 style="color: white; font-size: 15px"></h5>
+            </div>
+        </div>
+        <div class="row" style="width: 200px">
+            <div class="col-6">
+                    {% comment %} <a href="{% url 'settings' %}" class="text-decoration-none">Settings</a> {% endcomment %}
+                    <a href="{% url 'login' %}" class="text-decoration-none" style="font-size: 15px">Log in</a>
+            </div>
+            <div class="col-6">
+                    {% comment %} <a href="{% url 'logout' %}" class="text-decoration-none">Log out</a> {% endcomment %}
+                    <a href="{% url 'register' %}" class="text-decoration-none" style="font-size: 15px">Register</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<form action="{% url 'login_macro' %}" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="loginInput" class="form-label">Login</label>
+        <input type="text" class="form-control" id="loginInput" name="login" value="{{ profile.login }}">
+    </div>
+    <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input type="password" class="form-control" id="passwordInput" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Log in</button>
+</form>
+{% endblock %}

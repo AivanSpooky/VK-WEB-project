@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="row">
+    <div class="col-1 pages-arrow">
+        <a href="?page=1" class="btn btn-primary">1</a>
+    </div>
+    {% if paginated_data.has_previous %}
+    <div class="col-1 pages-arrow">
+            <a href="?page={{ paginated_data.previous_page_number }}" class="btn btn-primary">{{ paginated_data.previous_page_number }}</a>
+        {% comment %} {% else %}
+            <a class="btn btn-primary" style="background-color: rgb(45, 45, 45)">{{ questions.number }}</a> {% endcomment %}
+    </div>
+    {% endif %}
+    <div class="col-1 pages-arrow">
+        <a class="btn btn-primary" style="background-color: rgb(45, 45, 45)">{{ paginated_data.number }}</a>
+    </div>
+    {% if paginated_data.has_next %}
+    <div class="col-1 pages-arrow">
+            <a href="?page={{ paginated_data.next_page_number }}" class="btn btn-primary">{{ paginated_data.next_page_number }}</a>
+        {% comment %} {% else %}
+            <a class="btn btn-primary" style="background-color: rgb(45, 45, 45)">{{ questions.number }}</a> {% endcomment %} 
+    </div>
+    {% endif %}
+    <div class="col-1 pages-arrow">
+        <a href="?page={{ paginated_data.paginator.num_pages }}" class="btn btn-primary">{{ paginated_data.paginator.num_pages }}</a>
+    </div>
+</div>

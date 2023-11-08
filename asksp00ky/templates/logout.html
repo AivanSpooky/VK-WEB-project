@@ -1,0 +1,11 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<h1>Вы уверены, что хотите выйти?</h1>
+<form action="{% url 'logout' %}" method="POST">
+  {% csrf_token %}
+  <button type="submit">Да</button>
+</form>
+{% endblock %}

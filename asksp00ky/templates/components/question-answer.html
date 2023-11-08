@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="answer-container row question">
+        <div class="col-4">
+            <div class="user-image">
+                <img src="{% static 'img/profile.png' %}" alt="Profile Picture" class="img-fluid user-image" style="width: 130px; border: 1px solid white;">
+            </div>
+            <div class="likes-count">
+                {% include "components/likes-count.html" %}
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="answer-text">
+                <span class="correct-label">{{ answer.content }}</span>
+            </div>
+            <div class="correct-answer">
+                {% if answer.correct %}
+                <span class="correct-label">Correct!</span>
+                <i class="fas fa-check"></i>
+                {% else %}
+                <span class="correct-label">Not Correct!</span>
+                <div class="square"></div>
+                {% endif %}
+            </div>
+        </div>
+  </div>
+  

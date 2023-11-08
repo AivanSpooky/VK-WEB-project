@@ -1,0 +1,86 @@
+main > .container {
+    padding: 100px 15px 0px 0px;
+}
+
+.questions-main {
+    font-size: 70px;
+}
+
+.question-left {
+    padding-right: 10px;
+    padding-left: 35px;
+}
+
+.like-value {
+    border: 1px solid black;
+    border-radius: 3px; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 5px 5px 5px;
+}
+
+.like-buttons {
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-left: 2px;
+    padding: 1px 1px 1px 1px;
+    font-size: smaller;
+}
+
+.question {
+    border: 1px solid grey;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex; 
+}
+
+.question-image {
+    max-width: 200px;
+    max-height: 200px;
+    flex-shrink: 0; 
+    margin-right: 10px;
+}
+
+.question-body {
+    flex-grow: 1;
+}
+
+.question-title {
+    font-size: 30px;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.question-text {
+    box-sizing: border-box;
+}
+
+.user-image {
+    padding: 1px;
+    border: 5px solid black;
+    border-radius: 5px;
+    flex-shrink: 0;
+    width: 50%;
+    align-self: center;
+}
+
+.answer-input {
+    margin-top: 30px;
+}
+
+.answer-text {
+    width: fit-content;
+    block-size: 75%;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px 10px 10px 5px;
+    border-color: black;
+}
+
+.answer-button {
+    background-color: rgb(45, 45, 45);
+    fill:rgb(97, 89, 89);
+    border: 2px solid black;
+    border-radius: 5px;
+}

@@ -1,0 +1,37 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="signup-form">
+    <h1>Registration</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="loginInput" class="form-label">Login</label>
+            <input type="text" class="form-control" id="loginInput" name="login" required>
+        </div>
+        <div class="mb-3">
+            <label for="emailInput" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailInput" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="nicknameInput" class="form-label">Nickname</label>
+            <input type="text" class="form-control" id="nicknameInput" name="nickname" required>
+        </div>
+        <div class="mb-3">
+            <label for="passwordInput" class="form-label">Password</label>
+            <input type="password" class="form-control" id="passwordInput" name="password" required>
+        </div>
+        <div class="mb-3">
+            <label for="repeatPasswordInput" class="form-label">Repeat Password</label>
+            <input type="password" class="form-control" id="repeatPasswordInput" name="repeat_password" required>
+        </div>
+        <div class="mb-3">
+            <label for="avatarFile" class="form-label">Avatar</label>
+            <input type="file" class="form-control" id="avatarFile" name="avatar" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+{% endblock %}
