@@ -84,8 +84,10 @@ def question(request, question_id):
 
 def tag_questions(request, tag):
     filtered_questions = [question for question in questions if tag in question.get('tags', [])]
+    page = request.GET.get('page', 1)
+    paginated_answers = paginate(filtered_questions, page, 10)
     context = {
-        'questions': filtered_questions,
+        'questions': paginated_answers,
         'notag': False,
         'p1': f'Tag: {tag} ',
     }
