@@ -95,12 +95,10 @@
             <div class="row">
                 <div class="tags">
                     <h3>Popular tags</h3>
-                    <a href="{% url 'tag' tag='new' %}"><span class="badge bg-primary" style="margin-left: 1px">new</span></a>
-                    <a href="{% url 'tag' tag='django' %}"><span class="badge bg-success" style="margin-left: 1px">django</span></a>
-                    <a href="{% url 'tag' tag='python' %}"><span class="badge bg-secondary" style="margin-left: 1px">python</span></a>
-                    <a href="{% url 'tag' tag='sp00ky' %}"><span class="badge bg-danger" style="margin-left: 1px">sp00ky</span></a>
-                    <a href="{% url 'tag' tag='web' %}"><span class="badge bg-dark" style="margin-left: 1px">web</span></a>
-                    <a href="{% url 'tag' tag='c' %}"><span class="badge bg-info" style="margin-left: 1px">c</span></a>
+                    {% block pop_tags %}
+                      <!-- Default content if not overridden in child template -->
+                      <p>No popular tags</p>
+                    {% endblock %}
                 </div>
                 <h3 style="margin-top: 30px;">Best members</h3>
                 <ul class="list-group">

@@ -8,11 +8,11 @@
     <h1>{{ question.title }}</h1>
 </div>  
 
-{% include 'components/question-item.html' with likes_count=question.likes %}
+{% include 'components/question-item.html' with rating=question %}
 
 {% if answers %}
     {% for answer in answers %}
-    {% include 'components/question-answer.html' with likes_count=answer.likes %}
+    {% include 'components/question-answer.html' with rating=answer %}
     {% endfor %}
 {% else %}
 <div class="questions-main">

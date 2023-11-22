@@ -3,10 +3,10 @@
 <div class="answer-container row question">
         <div class="col-4">
             <div class="user-image">
-                <img src="{% static 'img/profile.png' %}" alt="Profile Picture" class="img-fluid user-image" style="width: 130px; border: 1px solid white;">
+                <img src="{% static answer.author.avatar %}" alt="Profile Picture" class="img-fluid user-image" style="width: 130px; border: 1px solid white;">
             </div>
             <div class="likes-count">
-                {% include "components/likes-count.html" %}
+                {% include "components/likes-count.html" with rating=rating %}
             </div>
         </div>
         <div class="col-8">
@@ -15,12 +15,13 @@
             </div>
             <div class="correct-answer">
                 {% if answer.correct %}
-                <span class="correct-label">Correct!</span>
-                <i class="fas fa-check"></i>
+                    <input type="checkbox" checked disabled>
+                    <span class="correct-label">Correct!</span>
                 {% else %}
-                <span class="correct-label">Not Correct!</span>
-                <div class="square"></div>
+                    <input type="checkbox" disabled>
+                    <span class="correct-label">Not Correct!</span>
                 {% endif %}
+
             </div>
         </div>
   </div>

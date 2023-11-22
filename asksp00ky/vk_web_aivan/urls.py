@@ -31,6 +31,8 @@ urlpatterns = [
     path('ask/', views.ask, name='ask'),
 
     path('tag/<str:tag>/', views.tag_questions, name='tag'),
+    path('hot/', views.hot_questions, name='hot'),
+    path('new/', views.new_questions, name='new'),
     path('question/<int:question_id>/', views.question, name='question'),
 
     path('admin/', admin.site.urls),

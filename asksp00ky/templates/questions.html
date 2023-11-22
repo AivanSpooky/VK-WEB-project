@@ -2,20 +2,30 @@
 
 {% load static %}
 
+{% block pop_tags %}
+    {% for tag in popular_tags %}
+    {% cycle 'bg-primary' 'bg-secondary' 'bg-success' 'bg-danger' 'bg-info' as tag_class silent %}
+    <a href="{% url 'tag' tag=tag.name %}"><span class="badge {{ tag_class }}" style="margin-left: 1px">{{ tag.name }}</span></a>
+    {% endfor %}
+{% endblock %}
+
 {% block content %}
 
 {% if questions %}
     {% if notag %}
     <div class="questions-main">
         <h1>{{ p1 }}Questions</h1>
-    </div> 
+    </div>
+    <h4>Also see:</h4>
+    <h4><a href="{% url 'hot' %}">Hot Questions</a></h4>
+    <h4><a href="{% url 'new' %}">New Questions</a></h4>
     {% else %}
     <div class="questions-main">
         <h1>{{ p1 }}</h1>
     </div>
     {% endif %} 
     {% for question in questions %}
-    {% include 'components/question-item.html' %}
+    {% include 'components/question-item.html' with rating=question %}
     {% endfor %}
 {% else %}
     <div class="questions-main">
