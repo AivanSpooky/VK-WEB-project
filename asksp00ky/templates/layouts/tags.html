@@ -1,0 +1,6 @@
+{% load static %}
+
+{% for tag in popular_tags %}
+{% cycle 'bg-primary' 'bg-secondary' 'bg-success' 'bg-danger' 'bg-info' as tag_class silent %}
+<a href="{% url 'tag' tag=tag.name %}"><span class="badge {{ tag_class }}" style="margin-left: 1px">{{ tag.name }}</span></a>
+{% endfor %}

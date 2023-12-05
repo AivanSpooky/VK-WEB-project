@@ -21,13 +21,13 @@ from app import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('question/', views.index, name='question'),
+    path('question/<int:question_id>/', views.add_answer, name='add_answer'),
     path('handle_invalid_page/', views.handle_invalid_page, name='handle_invalid_page'),
 
     path('settings/', views.settings, name='settings'),
-    path('logout_macro/', views.logout, name='logout'),
-    path('login_macro/', views.login_macro, name='login_macro'),
+    path('logout_macro/', views.user_logout, name='logout'),
     path('login/', views.login_window, name='login'),
-    path('register/', views.register_window, name='register'),
+    path('register/', views.user_registration, name='register'),
     path('ask/', views.ask, name='ask'),
 
     path('tag/<str:tag>/', views.tag_questions, name='tag'),

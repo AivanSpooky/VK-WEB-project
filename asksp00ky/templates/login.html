@@ -2,16 +2,28 @@
 
 {% load static %}
 
+{% block pop_tags %}
+    {% include "layouts/tags.html" with popular_tags=popular_tags %}
+{% endblock %}
+
 {% block content %}
-<form action="{% url 'login_macro' %}" method="POST">
+{% if error_message %}
+    {% if color == "red" %}
+    <p style="color: red;">{{ error_message }}</p>
+    {% elif color == "green" %}
+    <p style="color: green;">{{ error_message }}</p>
+    {% endif %}
+{% endif %}
+<form action="{% url 'login' %}" method="POST">
     {% csrf_token %}
+    <input type="hidden" name="continue" value="{{ request.GET.continue }}">
     <div class="mb-3">
         <label for="loginInput" class="form-label">Login</label>
-        <input type="text" class="form-control" id="loginInput" name="login" value="{{ profile.login }}">
+        <input type="text" class="form-control" id="loginInput" name="login" placeholder="Username" value="{{ profile.login }}">
     </div>
     <div class="mb-3">
         <label for="passwordInput" class="form-label">Password</label>
-        <input type="password" class="form-control" id="passwordInput" name="password">
+        <input type="password" class="form-control" id="passwordInput" name="password" placeholder="Password">
     </div>
     <button type="submit" class="btn btn-primary">Log in</button>
 </form>

@@ -2,11 +2,18 @@
 
 {% load static %}
 
+{% block pop_tags %}
+    {% include "layouts/tags.html" with popular_tags=popular_tags %}
+{% endblock %}
+
 {% block content %}
 
 <div class="questions-main">
     <h1>{{ question.title }}</h1>
 </div>  
+{% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+{% endif %}
 
 {% include 'components/question-item.html' with rating=question %}
 

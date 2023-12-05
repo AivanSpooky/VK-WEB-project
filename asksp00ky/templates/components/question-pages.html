@@ -1,27 +1,31 @@
 {% load static %}
 
 <div class="row">
-    <div class="col-1 pages-arrow">
-        <a href="?page=1" class="btn btn-primary">1</a>
+    {% if paginated_data.number != 1 and paginated_data.number != 2 %}
+    <div class="col-1 pages-arrow", style="margin-right: 50px;">
+        <a href="?page=1" class="btn btn-primary", style="width: 90px;">1</a>
     </div>
+    {% endif %}
     {% if paginated_data.has_previous %}
-    <div class="col-1 pages-arrow">
-            <a href="?page={{ paginated_data.previous_page_number }}" class="btn btn-primary">{{ paginated_data.previous_page_number }}</a>
+    <div class="col-1 pages-arrow", style="margin-right: 50px;">
+            <a href="?page={{ paginated_data.previous_page_number }}" class="btn btn-primary", style="width: 90px;">{{ paginated_data.previous_page_number }}</a>
         {% comment %} {% else %}
             <a class="btn btn-primary" style="background-color: rgb(45, 45, 45)">{{ questions.number }}</a> {% endcomment %}
     </div>
     {% endif %}
-    <div class="col-1 pages-arrow">
-        <a class="btn btn-primary" style="background-color: rgb(45, 45, 45)">{{ paginated_data.number }}</a>
+    <div class="col-1 pages-arrow", style="margin-right: 50px;">
+        <a class="btn btn-primary" style="background-color: rgb(45, 45, 45); width: 90px;">{{ paginated_data.number }}</a>
     </div>
     {% if paginated_data.has_next %}
-    <div class="col-1 pages-arrow">
-            <a href="?page={{ paginated_data.next_page_number }}" class="btn btn-primary">{{ paginated_data.next_page_number }}</a>
+    <div class="col-1 pages-arrow", style="margin-right: 50px;">
+            <a href="?page={{ paginated_data.next_page_number }}" class="btn btn-primary", style="width: 90px;">{{ paginated_data.next_page_number }}</a>
         {% comment %} {% else %}
             <a class="btn btn-primary" style="background-color: rgb(45, 45, 45)">{{ questions.number }}</a> {% endcomment %} 
     </div>
     {% endif %}
-    <div class="col-1 pages-arrow">
-        <a href="?page={{ paginated_data.paginator.num_pages }}" class="btn btn-primary">{{ paginated_data.paginator.num_pages }}</a>
+    {% if paginated_data.number != paginated_data.paginator.num_pages and paginated_data.number != paginated_data.paginator.num_pages|add:"-1" %}
+    <div class="col-1 pages-arrow", style="margin-right: 50px;">
+        <a href="?page={{ paginated_data.paginator.num_pages }}" class="btn btn-primary", style="width: 90px;">{{ paginated_data.paginator.num_pages }}</a>
     </div>
+    {% endif %}
 </div>

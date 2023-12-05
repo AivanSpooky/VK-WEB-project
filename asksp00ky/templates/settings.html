@@ -2,18 +2,22 @@
 
 {% load static %}
 
+{% block pop_tags %}
+    {% include "layouts/tags.html" with popular_tags=popular_tags %}
+{% endblock %}
+
 {% block content %}
     <h1>Settings: {{ profile.nickname }}</h1>
     <div class="row">
-        <div class="col-8">
+        {% comment %} <div class="col-8">
             <form>
                 <div class="mb-3">
                     <label for="loginInput" class="form-label">login</label>
-                    <input type="text" class="form-control" id="loginInput" value="{{ profile.login }}">
+                    <input type="text" class="form-control" id="loginInput" value="{{ profile.user.username }}">
                 </div>
                 <div class="mb-3">
                     <label for="emailInput" class="form-label">email</label>
-                    <input type="text" class="form-control" id="emailInput" value="{{ profile.email }}">
+                    <input type="text" class="form-control" id="emailInput" value="{{ profile.user.email }}">
                 </div>
                 <div class="mb-3">
                     <label for="nicknameInput" class="form-label">nickname</label>
@@ -34,7 +38,33 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Upload</button>
             </form>
-        </div>
+        </div> {% endcomment %}
+        {% if error_message %}
+            {% if color == "red" %}
+                <p style="color: red;">{{ error_message }}</p>
+            {% elif color == "green" %}
+                <p style="color: green;">{{ error_message }}</p>
+            {% endif %}
+        {% endif %}
+        <form action="{% url 'settings' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="loginInput" class="form-label">Login</label>
+                <input type="text" class="form-control" id="loginInput" name="loginInput" value="{{ profile.user.username }}">
+            </div>
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Email</label>
+                <input type="text" class="form-control" id="emailInput" name="emailInput" value="{{ profile.user.email }}">
+            </div>
+            <div class="mb-3">
+                <label for="nicknameInput" class="form-label">Nickname</label>
+                <input type="text" class="form-control" id="nicknameInput" name="nicknameInput" value="{{ profile.nickname }}">
+            </div>
+            <div class="mb-3">
+                <label for="avatarFile" class="form-label">Avatar</label>
+                <input type="file" class="form-control" id="avatarFile" name="avatarFile" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
 {% endblock %}

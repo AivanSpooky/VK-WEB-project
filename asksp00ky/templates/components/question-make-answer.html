@@ -1,7 +1,10 @@
 {% load static %}
 
-<div class="answer-input">
-    <textarea name="qanswer" id="qanswer" rows="4" cols="50" placeholder="Answer question here:" style="width: 700px"></textarea>
-</div>
-  <button class="answer-button" style="padding: 1px 1px 1px 1px; color: white;">Answer</button>
+<form action="{% url 'add_answer' question_id=question.id %}" method="POST">
+  {% csrf_token %}
+  <div class="answer-input">
+      <textarea name="qanswer" id="qanswer" rows="4" cols="50" placeholder="Answer question here:" style="width: 700px"></textarea>
+  </div>
+    <button class="answer-button" style="padding: 1px 1px 1px 1px; color: white;">Answer</button>
+</form>
   

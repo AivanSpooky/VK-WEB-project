@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block pop_tags %}
+    {% include "layouts/tags.html" with popular_tags=popular_tags %}
+{% endblock %}
+
 {% block content %}
 <h1>Вы уверены, что хотите выйти?</h1>
 <form action="{% url 'logout' %}" method="POST">

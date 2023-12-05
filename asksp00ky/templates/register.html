@@ -2,7 +2,14 @@
 
 {% load static %}
 
+{% block pop_tags %}
+    {% include "layouts/tags.html" with popular_tags=popular_tags %}
+{% endblock %}
+
 {% block content %}
+{% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+{% endif %}
 <div class="signup-form">
     <h1>Registration</h1>
     <form method="POST" enctype="multipart/form-data">
